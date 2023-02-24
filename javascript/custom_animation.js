@@ -40,6 +40,16 @@ function addRandomFeature() {
     source.addFeature(feature);
 }
 
+function addFixedFeature() {
+    const x = -101.7157979;
+    const y = 21.1523341;
+    //const coordinates = [-11322443.92342625,2410065.884843269];
+    //const geom = new Point(coordinates);
+    const geom = new Point(fromLonLat([x, y]));
+    const feature = new Feature(geom);
+    source.addFeature(feature);
+}
+
 const duration = 3000;
 function flash(feature) {
     const start = Date.now();
@@ -78,4 +88,7 @@ source.on('addfeature', function (e) {
     flash(e.feature);
 });
 
-window.setInterval(addRandomFeature, 1000);
+//window.setInterval(addRandomFeature, 1000);
+addFixedFeature();
+window.setInterval(addFixedFeature, 5000);
+
