@@ -10,10 +10,10 @@ import {fromLonLat} from 'ol/proj.js';
 import {getVectorContext} from 'ol/render.js';
 import {unByKey} from 'ol/Observable.js';
 
-const API_URL = "http://localhost:4000/cities";
-const xhr = new XMLHttpRequest();
+//const API_URL = "http://localhost:4000/cities";
+//const xhr = new XMLHttpRequest();
 
-async function onRequestHandler(){
+/*async function onRequestHandler(){
     if(this.readyState == 4 && this.status == 200){
       console.log(this.response);
       const data = JSON.parse(this.response);
@@ -23,15 +23,15 @@ async function onRequestHandler(){
         await sleep(4000);
       }
     }
-  }
+}*/
 
-xhr.addEventListener("load", onRequestHandler);
-xhr.open("GET",API_URL);
-xhr.send();
+//xhr.addEventListener("load", onRequestHandler);
+//xhr.open("GET",API_URL);
+//xhr.send();
 
-function sleep(ms) {
+/*function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
+}*/
 
 
 const tileLayer = new TileLayer({
@@ -113,8 +113,8 @@ source.on('addfeature', function (e) {
 });
 
 //window.setInterval(addRandomFeature, 1000);
-//addFixedFeature();
-//window.setInterval(addFixedFeature, 5000);
+addFixedFeature();
+window.setInterval(addFixedFeature, 5000);
 
 function addCityFeature(longitude, latitude) {
     addFromLonLatFeature(longitude, latitude);
